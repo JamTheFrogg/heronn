@@ -1,0 +1,116 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#f5f3f0}</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script>
+// Background loops. Each frame is a pure function of t in [0, T): everything is periodic in T, so frame T == frame 0.
+const W = 1920, H = 1080, cv = document.getElementById('c'), x = cv.getContext('2d');
+const TAU = Math.PI * 2;
+const BG = [245, 243, 240], RED = [127, 20, 22];
+const rgba = (c, a = 1) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+const ease = (u) => u * u * (3 - 2 * u);
+// periodic 0..1..0 envelope: 0 for [0,a], rises over [a,b], holds 1 to c, falls by d, 0 to end
+function env(p, a, b, c, d) { if (p < a || p > d) return 0; if (p < b) return ease((p - a) / (b - a)); if (p < c) return 1; return 1 - ease((p - c) / (d - c)); }
+function rand(i) { const s = Math.sin(i * 127.1 + 311.7) * 43758.5453; return s - Math.floor(s); }
+
+function rr(px, py, w, h, r) { x.beginPath(); x.roundRect(px, py, w, h, r); }
+
+// ---------- hero-loop: a catalogue rearranging itself to match a sentence ----------
+const COLS = 13, ROWS = 7, TW = 96, TH = 112, N = COLS * ROWS;
+const tiles = [];
+for (let i = 0; i < N; i++) {
+  const c = i % COLS, r = Math.floor(i / COLS);
+  // loose, drifting home: jittered grid spread across the whole frame
+  const hx = (c + 0.5) / COLS * W * 1.04 - W * 0.02 + (rand(i) - 0.5) * 70, hy = (r + 0.5) / ROWS * H * 1.06 - H * 0.03 + (rand(i + 99) - 0.5) * 70;
+  tiles.push({ hx, hy, ph: rand(i + 7) * TAU, ph2: rand(i + 13) * TAU, amp: 14 + rand(i + 5) * 22, rot: (rand(i + 3) - 0.5) * 0.22, s: 0.78 + rand(i + 21) * 0.3, match: false });
+}
+// the "matches": a handful of tiles that come forward into the top row of the ordered layout, right side
+const matchIdx = [8, 23, 37, 49, 62, 74, 86].slice(0, 6); matchIdx.forEach((i) => tiles[i].match = true);
+// ordered layout: right two-thirds, neat rows; matches first (front row, slightly larger)
+const ord = []; { let m = 0, o = 0; const ox = W * 0.40, oy = H * 0.20, gx = 118, gy = 128;
+  tiles.forEach((t, i) => { if (t.match) { ord[i] = [ox + m * gx * 1.08, oy, 1.06]; m++; } });
+  tiles.forEach((t, i) => { if (!t.match) { const k = o++, cpr = 9; const rx = k % cpr, ry = Math.floor(k / cpr);
+    ord[i] = ry < 4 ? [ox + rx * gx, oy + gy * 1.25 + ry * gy, 0.9] : [W * 0.5 + (rand(i) - 0.5) * W * 1.2, H * 1.25 + rand(i + 4) * 200, 0.7]; } }); }
+
+function hero(t, T) {
+  const p = t / T;
+  x.fillStyle = rgba(BG); x.fillRect(0, 0, W, H);
+  // faint warm wash from the right
+  const g = x.createRadialGradient(W * 0.78, H * 0.35, 0, W * 0.78, H * 0.35, W * 0.7);
+  g.addColorStop(0, 'rgba(250,246,240,0.9)'); g.addColorStop(1, 'rgba(245,243,240,0)'); x.fillStyle = g; x.fillRect(0, 0, W, H);
+  const o = env(p, 0.18, 0.42, 0.66, 0.9);           // ordering amount
+  // matches settle a touch after the rest and leave a touch before
+  const om = env(p, 0.22, 0.46, 0.62, 0.86);
+  const list = tiles.map((tl, i) => {
+    const k = tl.match ? om : o;
+    const dx = Math.sin(TAU * p + tl.ph) * tl.amp + Math.sin(TAU * 2 * p + tl.ph2) * tl.amp * 0.35;
+    const dy = Math.cos(TAU * p + tl.ph2) * tl.amp * 0.8 + Math.sin(TAU * 3 * p + tl.ph) * tl.amp * 0.2;
+    const fx = tl.hx + dx, fy = tl.hy + dy, [ax, ay, as] = ord[i];
+    const px = fx + (ax - fx) * k, py = fy + (ay - fy) * k;
+    const rot = tl.rot * (1 - k) + Math.sin(TAU * p + tl.ph) * 0.03 * (1 - k);
+    const s = tl.s + (as - tl.s) * k;
+    const fade = 0.22 + 0.78 * ease(Math.min(1, Math.max(0, (px - W * 0.12) / (W * 0.40))));  // keep the text side calm
+    const alpha = (tl.match ? 1 : 1 - 0.35 * k) * fade;
+    return { tl, px, py, rot, s, alpha, k, z: tl.match ? 2 : 1 };
+  }).sort((a, b) => a.z - b.z);
+  for (const d of list) {
+    x.save(); x.translate(d.px, d.py); x.rotate(d.rot); x.scale(d.s, d.s); x.globalAlpha = d.alpha;
+    x.shadowColor = 'rgba(80,60,40,0.075)'; x.shadowBlur = 28; x.shadowOffsetY = 10;
+    rr(-TW / 2, -TH / 2, TW, TH, 14); x.fillStyle = 'rgb(252,251,249)'; x.fill();
+    x.shadowColor = 'transparent';
+    // product "image" well + two text lines: abstract, very low contrast
+    rr(-TW / 2 + 10, -TH / 2 + 10, TW - 20, TH * 0.5, 9); x.fillStyle = 'rgb(240,237,233)'; x.fill();
+    rr(-TW / 2 + 10, TH * 0.16, TW * 0.62, 7, 3.5); x.fillStyle = 'rgb(232,229,225)'; x.fill();
+    rr(-TW / 2 + 10, TH * 0.30, TW * 0.36, 7, 3.5); x.fill();
+    if (d.tl.match) {
+      // whisper of brand red: a thin ring and a dot that fade in only as the match is found
+      const m = d.k;
+      x.lineWidth = 1.6; x.strokeStyle = rgba(RED, 0.55 * m); rr(-TW / 2, -TH / 2, TW, TH, 14); x.stroke();
+      x.beginPath(); x.arc(TW / 2 - 14, TH * 0.33, 3.2, 0, TAU); x.fillStyle = rgba(RED, 0.8 * m); x.fill();
+    }
+    x.restore();
+  }
+  // a quiet "sentence" line: a caret-led bar that types in while things order
+  const lineW = 560 * env(p, 0.08, 0.30, 0.70, 0.92);
+  if (lineW > 1) { x.globalAlpha = 1; rr(W * 0.40, H * 0.085, lineW, 10, 5); x.fillStyle = 'rgb(226,222,217)'; x.fill();
+    x.fillStyle = rgba(RED, 0.55 * env(p, 0.08, 0.14, 0.86, 0.92)); x.fillRect(W * 0.40 + lineW + 8, H * 0.085 - 8, 2.5, 26); }
+}
+
+// ---------- ambient-loop: soft light sweeping across a studio surface ----------
+function ambient(t, T) {
+  const p = t / T;
+  x.fillStyle = rgba(BG); x.fillRect(0, 0, W, H);
+  // floor/wall horizon softness
+  const v = x.createLinearGradient(0, 0, 0, H); v.addColorStop(0, 'rgba(240,237,233,1)'); v.addColorStop(0.55, 'rgba(246,244,241,1)'); v.addColorStop(1, 'rgba(242,239,235,1)');
+  x.fillStyle = v; x.fillRect(0, 0, W, H);
+  // big soft light pool travelling on a periodic path
+  const lx = W * (0.5 + 0.38 * Math.sin(TAU * p)), ly = H * (0.42 + 0.10 * Math.sin(TAU * 2 * p + 1));
+  let g = x.createRadialGradient(lx, ly, 0, lx, ly, W * 0.55);
+  g.addColorStop(0, 'rgba(255,253,249,0.95)'); g.addColorStop(0.5, 'rgba(252,249,244,0.45)'); g.addColorStop(1, 'rgba(250,247,242,0)');
+  x.fillStyle = g; x.fillRect(0, 0, W, H);
+  // slow diagonal light planes (like light through a window) drifting across
+  x.save(); x.translate(W / 2, H / 2); x.rotate(-0.42 + 0.04 * Math.sin(TAU * p));
+  for (let k = 0; k < 3; k++) {
+    const off = ((p + k / 3) % 1) * 2.2 - 1.1;      // wraps across exactly once per loop, invisible at the ends
+    const cx = off * W, wv = 260 + 80 * k, a = 0.22 * Math.sin(Math.PI * ((p + k / 3) % 1));
+    const lg = x.createLinearGradient(cx - wv, 0, cx + wv, 0);
+    lg.addColorStop(0, 'rgba(255,255,255,0)'); lg.addColorStop(0.5, `rgba(255,253,250,${a})`); lg.addColorStop(1, 'rgba(255,255,255,0)');
+    x.fillStyle = lg; x.fillRect(cx - wv, -H * 1.5, wv * 2, H * 3);
+  }
+  x.restore();
+  // gentle shadow pool on the opposite side, breathing
+  const sx = W * (0.5 - 0.30 * Math.sin(TAU * p)), sy = H * 0.86;
+  g = x.createRadialGradient(sx, sy, 0, sx, sy, W * 0.45);
+  g.addColorStop(0, 'rgba(225,219,211,0.35)'); g.addColorStop(1, 'rgba(225,219,211,0)');
+  x.fillStyle = g; x.fillRect(0, 0, W, H);
+  // soft sweep where the studio floor curves into the wall
+  const hz = H * (0.64 + 0.01 * Math.sin(TAU * p + 2));
+  const hg = x.createLinearGradient(0, hz - 140, 0, hz + 160);
+  hg.addColorStop(0, 'rgba(232,227,221,0)'); hg.addColorStop(0.45, 'rgba(232,227,221,0.32)'); hg.addColorStop(1, 'rgba(232,227,221,0)');
+  x.fillStyle = hg; x.fillRect(0, hz - 140, W, 300);
+}
+// static fine grain (same every frame) - breaks 8-bit banding in the soft gradients
+const grain = (() => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const d = g.createImageData(W, H);
+  let s = 1; for (let i = 0; i < d.data.length; i += 4) { s = (s * 16807) % 2147483647; const v = s % 2 ? 255 : 0; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 5; }
+  g.putImageData(d, 0, 0); return c; })();
+window.draw = (name, t, T) => { if (name !== 'hero-loop') { ambient(t, T); x.drawImage(grain, 0, 0); return cv.toDataURL('image/png'); } (name === 'hero-loop' ? hero : ambient)(t, T); return cv.toDataURL('image/png'); };
+window.ready = true;
+</script></body></html>

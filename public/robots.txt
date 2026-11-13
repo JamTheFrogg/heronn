@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wortox.srnja.com/sitemap.xml

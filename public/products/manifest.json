@@ -1,0 +1,164 @@
+{
+  "note": "Rendered from code (three.js). image = /products/<key>.webp (1200x1200), small = /products/<key>@600.webp. Look up byId first, then byArt.",
+  "background": "rgb(245,243,240)",
+  "hero": "/products/hero-family.webp",
+  "keys": {
+    "alarm-hub": {
+      "image": "/products/alarm-hub.webp",
+      "small": "/products/alarm-hub@600.webp"
+    },
+    "battery-camera": {
+      "image": "/products/battery-camera.webp",
+      "small": "/products/battery-camera@600.webp"
+    },
+    "bullet": {
+      "image": "/products/bullet.webp",
+      "small": "/products/bullet@600.webp"
+    },
+    "bullet-colour": {
+      "image": "/products/bullet-colour.webp",
+      "small": "/products/bullet-colour@600.webp"
+    },
+    "bullet-wifi": {
+      "image": "/products/bullet-wifi.webp",
+      "small": "/products/bullet-wifi@600.webp"
+    },
+    "contact-sensor": {
+      "image": "/products/contact-sensor.webp",
+      "small": "/products/contact-sensor@600.webp"
+    },
+    "cube": {
+      "image": "/products/cube.webp",
+      "small": "/products/cube@600.webp"
+    },
+    "cube-graphite": {
+      "image": "/products/cube-graphite.webp",
+      "small": "/products/cube-graphite@600.webp"
+    },
+    "dome": {
+      "image": "/products/dome.webp",
+      "small": "/products/dome@600.webp"
+    },
+    "dome-vandal": {
+      "image": "/products/dome-vandal.webp",
+      "small": "/products/dome-vandal@600.webp"
+    },
+    "doorbell": {
+      "image": "/products/doorbell.webp",
+      "small": "/products/doorbell@600.webp"
+    },
+    "doorbell-intercom": {
+      "image": "/products/doorbell-intercom.webp",
+      "small": "/products/doorbell-intercom@600.webp"
+    },
+    "fingerprint-lock": {
+      "image": "/products/fingerprint-lock.webp",
+      "small": "/products/fingerprint-lock@600.webp"
+    },
+    "floodlight": {
+      "image": "/products/floodlight.webp",
+      "small": "/products/floodlight@600.webp"
+    },
+    "keypad-lock": {
+      "image": "/products/keypad-lock.webp",
+      "small": "/products/keypad-lock@600.webp"
+    },
+    "motion-sensor": {
+      "image": "/products/motion-sensor.webp",
+      "small": "/products/motion-sensor@600.webp"
+    },
+    "pan-tilt": {
+      "image": "/products/pan-tilt.webp",
+      "small": "/products/pan-tilt@600.webp"
+    },
+    "ptz": {
+      "image": "/products/ptz.webp",
+      "small": "/products/ptz@600.webp"
+    },
+    "puck-sensor": {
+      "image": "/products/puck-sensor.webp",
+      "small": "/products/puck-sensor@600.webp"
+    },
+    "recorder": {
+      "image": "/products/recorder.webp",
+      "small": "/products/recorder@600.webp"
+    },
+    "recorder-pro": {
+      "image": "/products/recorder-pro.webp",
+      "small": "/products/recorder-pro@600.webp"
+    },
+    "siren": {
+      "image": "/products/siren.webp",
+      "small": "/products/siren@600.webp"
+    },
+    "smart-lock": {
+      "image": "/products/smart-lock.webp",
+      "small": "/products/smart-lock@600.webp"
+    },
+    "solar-camera": {
+      "image": "/products/solar-camera.webp",
+      "small": "/products/solar-camera@600.webp"
+    },
+    "turret": {
+      "image": "/products/turret.webp",
+      "small": "/products/turret@600.webp"
+    }
+  },
+  "byId": {
+    "c01": "bullet",
+    "c02": "bullet",
+    "c03": "bullet",
+    "c04": "bullet-colour",
+    "c05": "dome",
+    "c06": "dome-vandal",
+    "c07": "dome-vandal",
+    "c08": "turret",
+    "c09": "ptz",
+    "c10": "ptz",
+    "c11": "cube",
+    "c12": "pan-tilt",
+    "c13": "battery-camera",
+    "c14": "battery-camera",
+    "c15": "solar-camera",
+    "c16": "solar-camera",
+    "c17": "floodlight",
+    "c18": "bullet-wifi",
+    "c19": "cube-graphite",
+    "d01": "doorbell",
+    "d02": "doorbell",
+    "d03": "doorbell",
+    "d04": "doorbell",
+    "d05": "doorbell-intercom",
+    "r01": "recorder",
+    "r02": "recorder",
+    "r03": "recorder",
+    "r04": "recorder-pro",
+    "r05": "recorder-pro",
+    "r06": "recorder-pro",
+    "s01": "motion-sensor",
+    "s02": "motion-sensor",
+    "s05": "motion-sensor",
+    "s03": "contact-sensor",
+    "s04": "puck-sensor",
+    "s06": "puck-sensor",
+    "a01": "alarm-hub",
+    "a02": "alarm-hub",
+    "a03": "siren",
+    "a04": "siren",
+    "l01": "smart-lock",
+    "l02": "keypad-lock",
+    "l03": "fingerprint-lock"
+  },
+  "byArt": {
+    "bullet": "bullet",
+    "dome": "dome",
+    "ptz": "ptz",
+    "cube": "cube",
+    "solar": "solar-camera",
+    "doorbell": "doorbell",
+    "recorder": "recorder",
+    "sensor": "motion-sensor",
+    "alarm": "alarm-hub",
+    "lock": "smart-lock"
+  }
+}

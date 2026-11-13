@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#f5f3f0}</style>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+</head><body><script type="module">
+import * as THREE from 'three';
+import { init, makeStudio, render, frame } from './studio.js';
+import { MODELS, ground } from './models.js';
+// normalise a model to a bounding-sphere radius of 10 units, standing on the floor
+function prep(key, radius = 10) {
+  const o = ground(MODELS[key]());
+  const s = new THREE.Box3().setFromObject(o).getBoundingSphere(new THREE.Sphere());
+  o.scale.setScalar(radius / s.radius); o.updateMatrixWorld(true); return o;
+}
+window.shot = (key, W = 1200, N = 40) => {
+  init(W, W);
+  const scene = new THREE.Scene(); const obj = prep(key); scene.add(obj);
+  const st = makeStudio(scene, { size: 20, center: new THREE.Vector3(0, 6, 0) });
+  const cam = new THREE.PerspectiveCamera(24, 1, 1, 2000);
+  frame(cam, obj, { az: 32, el: 16, margin: 0.12 });
+  return render(scene, cam, st.jitter, N, W, W);
+};
+// hero: family of products on one sweep, group on the right two-thirds
+window.hero = (layout, W = 2400, H = 1350, N = 40) => {
+  init(W, H);
+  const scene = new THREE.Scene(); const fam = new THREE.Group();
+  for (const [key, r, x, z, ry] of layout) { const o = prep(key, r); o.position.set(x, 0, z); o.rotation.y = ry || 0; fam.add(o); }
+  scene.add(fam); fam.updateMatrixWorld(true);
+  const c = new THREE.Box3().setFromObject(fam).getCenter(new THREE.Vector3());
+  const st = makeStudio(scene, { size: 34, center: new THREE.Vector3(c.x, 6, c.z) });
+  const cam = new THREE.PerspectiveCamera(22, W / H, 1, 4000);
+  frame(cam, fam, { az: 24, el: 13, margin: 0.15, aspect: W / H, offsetX: 0.27 });
+  return render(scene, cam, st.jitter, N, W, H, { edge: 0.6 });
+};
+window.ready = true;
+</script></body></html>

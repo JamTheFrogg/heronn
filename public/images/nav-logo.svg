@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378.32 585.94">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke-miterlimit: 10;
+        stroke-width: 35px;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4 {
+        stroke: #7f1416;
+      }
+
+      .cls-1, .cls-3, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #7f1518;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-width: 24px;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-4 {
+        stroke-width: 10px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_4" data-name="Layer 4">
+    <path class="cls-3" d="M245.15,554.82c0-28.78,33.62-111.84,33.62-111.84,0,0,43.71,74.14,43.71,103.95"/>
+    <path class="cls-3" d="M266.12,377.21c-46.29-8.71-43.21-65.41-59.23-87.18"/>
+    <path class="cls-3" d="M267.06,378.33c3.98,11.33,11.71,48.07,11.71,64.64"/>
+    <path class="cls-3" d="M263.85,360.17l3.39,16.61c4.26,47.67-55.14,93.28-55.14,93.28"/>
+    <circle class="cls-2" cx="264.8" cy="339.51" r="20.68"/>
+    <path class="cls-3" d="M151.13,180.24s-20.3,50,23.64,118.6"/>
+    <circle class="cls-2" cx="186.12" cy="188.6" r="20.68"/>
+    <path class="cls-3" d="M21.21,242.27c0-39.05,24.65-88.27,24.65-88.27,10.19,10.61,25.33,51.85,25.33,51.85,14.15-24.33,95.98-27.31,95.98-27.31"/>
+    <path class="cls-3" d="M206.8,198.9s45.91,22.65,45.91,40.64"/>
+    <path class="cls-3" d="M71.19,205.84s66.47,17.11,66.25,33.59l-83.41,1.42"/>
+    <polygon class="cls-1" points="17.5 519.14 66.79 568.44 308.05 568.44 360.82 519.14 360.82 72.01 308.05 17.5 67.37 17.5 17.5 72.59 17.5 519.14"/>
+    <line class="cls-4" x1="17.5" y1="252.73" x2="360.82" y2="252.73"/>
+  </g>
+</svg>

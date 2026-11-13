@@ -1,0 +1,551 @@
+[
+ {
+  "id": "c01",
+  "name": "Bullet Camera B2",
+  "category": "camera",
+  "art": "bullet",
+  "price": 49,
+  "resolution": "1080p",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c02",
+  "name": "Bullet Camera B4",
+  "category": "camera",
+  "art": "bullet",
+  "price": 79,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c03",
+  "name": "Bullet Camera B8",
+  "category": "camera",
+  "art": "bullet",
+  "price": 149,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c04",
+  "name": "Colour Night Bullet Camera B8C",
+  "category": "camera",
+  "art": "bullet",
+  "price": 229,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c05",
+  "name": "Ceiling Dome Camera D2",
+  "category": "camera",
+  "art": "dome",
+  "price": 45,
+  "resolution": "1080p",
+  "features": [
+   "indoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c06",
+  "name": "Vandal Dome Camera D4",
+  "category": "camera",
+  "art": "dome",
+  "price": 89,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c07",
+  "name": "Vandal Dome Camera D8",
+  "category": "camera",
+  "art": "dome",
+  "price": 179,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c08",
+  "name": "Turret Camera T8",
+  "category": "camera",
+  "art": "dome",
+  "price": 199,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired"
+  ]
+ },
+ {
+  "id": "c09",
+  "name": "PTZ Camera P4",
+  "category": "camera",
+  "art": "ptz",
+  "price": 349,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired",
+   "ptz"
+  ]
+ },
+ {
+  "id": "c10",
+  "name": "PTZ Camera P8",
+  "category": "camera",
+  "art": "ptz",
+  "price": 549,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "night-vision",
+   "wired",
+   "ptz",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c11",
+  "name": "Wi-Fi Cube Camera C2",
+  "category": "camera",
+  "art": "cube",
+  "price": 35,
+  "resolution": "1080p",
+  "features": [
+   "indoor",
+   "wireless",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c12",
+  "name": "Wi-Fi Pan-Tilt Camera C4",
+  "category": "camera",
+  "art": "ptz",
+  "price": 59,
+  "resolution": "2K",
+  "features": [
+   "indoor",
+   "wireless",
+   "ptz",
+   "two-way-audio",
+   "night-vision"
+  ]
+ },
+ {
+  "id": "c13",
+  "name": "Battery Camera W2",
+  "category": "camera",
+  "art": "cube",
+  "price": 99,
+  "resolution": "1080p",
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c14",
+  "name": "Battery Camera W4",
+  "category": "camera",
+  "art": "cube",
+  "price": 139,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c15",
+  "name": "Solar Camera S4",
+  "category": "camera",
+  "art": "solar",
+  "price": 189,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery",
+   "solar",
+   "night-vision"
+  ]
+ },
+ {
+  "id": "c16",
+  "name": "Solar Camera S8",
+  "category": "camera",
+  "art": "solar",
+  "price": 279,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery",
+   "solar",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c17",
+  "name": "Floodlight Camera F4",
+  "category": "camera",
+  "art": "bullet",
+  "price": 169,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "wireless",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "c18",
+  "name": "Wi-Fi Outdoor Camera O8",
+  "category": "camera",
+  "art": "bullet",
+  "price": 239,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "wireless",
+   "night-vision"
+  ]
+ },
+ {
+  "id": "c19",
+  "name": "Indoor Camera I8",
+  "category": "camera",
+  "art": "cube",
+  "price": 119,
+  "resolution": "4K",
+  "features": [
+   "indoor",
+   "wireless"
+  ]
+ },
+ {
+  "id": "d01",
+  "name": "Video Doorbell V2",
+  "category": "doorbell",
+  "art": "doorbell",
+  "price": 69,
+  "resolution": "1080p",
+  "features": [
+   "outdoor",
+   "wired",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "d02",
+  "name": "Video Doorbell V4",
+  "category": "doorbell",
+  "art": "doorbell",
+  "price": 119,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "wired",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "d03",
+  "name": "Battery Video Doorbell V2B",
+  "category": "doorbell",
+  "art": "doorbell",
+  "price": 89,
+  "resolution": "1080p",
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "d04",
+  "name": "Battery Video Doorbell V4B",
+  "category": "doorbell",
+  "art": "doorbell",
+  "price": 149,
+  "resolution": "2K",
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "d05",
+  "name": "Doorbell Intercom V8",
+  "category": "doorbell",
+  "art": "doorbell",
+  "price": 249,
+  "resolution": "4K",
+  "features": [
+   "outdoor",
+   "wired",
+   "night-vision",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "r01",
+  "name": "Network Recorder N4",
+  "category": "recorder",
+  "art": "recorder",
+  "price": 119,
+  "resolution": "2K",
+  "channels": 4,
+  "features": []
+ },
+ {
+  "id": "r02",
+  "name": "Network Recorder N8",
+  "category": "recorder",
+  "art": "recorder",
+  "price": 189,
+  "resolution": "4K",
+  "channels": 8,
+  "features": []
+ },
+ {
+  "id": "r03",
+  "name": "PoE Network Recorder N8P",
+  "category": "recorder",
+  "art": "recorder",
+  "price": 249,
+  "resolution": "4K",
+  "channels": 8,
+  "features": [
+   "wired"
+  ]
+ },
+ {
+  "id": "r04",
+  "name": "Network Recorder N16",
+  "category": "recorder",
+  "art": "recorder",
+  "price": 329,
+  "resolution": "4K",
+  "channels": 16,
+  "features": []
+ },
+ {
+  "id": "r05",
+  "name": "PoE Network Recorder N16P",
+  "category": "recorder",
+  "art": "recorder",
+  "price": 429,
+  "resolution": "4K",
+  "channels": 16,
+  "features": [
+   "wired"
+  ]
+ },
+ {
+  "id": "r06",
+  "name": "Network Recorder N32",
+  "category": "recorder",
+  "art": "recorder",
+  "price": 649,
+  "resolution": "4K",
+  "channels": 32,
+  "features": []
+ },
+ {
+  "id": "s01",
+  "name": "Motion Sensor M1",
+  "category": "sensor",
+  "art": "sensor",
+  "price": 25,
+  "features": [
+   "indoor",
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "s02",
+  "name": "Outdoor Motion Sensor M2",
+  "category": "sensor",
+  "art": "sensor",
+  "price": 59,
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "s03",
+  "name": "Door and Window Sensor K1",
+  "category": "sensor",
+  "art": "sensor",
+  "price": 15,
+  "features": [
+   "indoor",
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "s04",
+  "name": "Glass-Break Sensor G1",
+  "category": "sensor",
+  "art": "sensor",
+  "price": 35,
+  "features": [
+   "indoor",
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "s05",
+  "name": "Wired Motion Sensor M1W",
+  "category": "sensor",
+  "art": "sensor",
+  "price": 19,
+  "features": [
+   "indoor",
+   "wired"
+  ]
+ },
+ {
+  "id": "s06",
+  "name": "Water Leak Sensor L1",
+  "category": "sensor",
+  "art": "sensor",
+  "price": 22,
+  "features": [
+   "indoor",
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "a01",
+  "name": "Alarm Kit K4",
+  "category": "alarm",
+  "art": "alarm",
+  "price": 199,
+  "features": [
+   "indoor",
+   "wireless"
+  ]
+ },
+ {
+  "id": "a02",
+  "name": "Alarm Kit K8",
+  "category": "alarm",
+  "art": "alarm",
+  "price": 349,
+  "features": [
+   "indoor",
+   "wireless",
+   "two-way-audio"
+  ]
+ },
+ {
+  "id": "a03",
+  "name": "Outdoor Siren X1",
+  "category": "alarm",
+  "art": "alarm",
+  "price": 79,
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "a04",
+  "name": "Indoor Siren X0",
+  "category": "alarm",
+  "art": "alarm",
+  "price": 29,
+  "features": [
+   "indoor",
+   "wired"
+  ]
+ },
+ {
+  "id": "l01",
+  "name": "Smart Deadbolt L1",
+  "category": "lock",
+  "art": "lock",
+  "price": 129,
+  "features": [
+   "wireless",
+   "battery"
+  ]
+ },
+ {
+  "id": "l02",
+  "name": "Keypad Lock L2",
+  "category": "lock",
+  "art": "lock",
+  "price": 89,
+  "features": [
+   "outdoor",
+   "battery"
+  ]
+ },
+ {
+  "id": "l03",
+  "name": "Fingerprint Lock L3",
+  "category": "lock",
+  "art": "lock",
+  "price": 219,
+  "features": [
+   "outdoor",
+   "wireless",
+   "battery"
+  ]
+ }
+]
