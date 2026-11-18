@@ -7,9 +7,14 @@ export function Footer() {
           <img src="/images/nav-logo.svg" alt="" width={11} height={17} />
           <p>© {new Date().getFullYear()} Wortox AI</p>
         </div>
-        <a href="mailto:faris@saaisolutions.com" className="transition-colors hover:text-fg">
-          faris@saaisolutions.com
-        </a>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <a href="https://faris.srnja.com/work/wortox" className="transition-colors hover:text-fg">
+            Built by Faris Srnja
+          </a>
+          <a href="mailto:faris@saaisolutions.com" className="transition-colors hover:text-fg">
+            faris@saaisolutions.com
+          </a>
+        </div>
       </div>
     </footer>
   );

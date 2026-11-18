@@ -6,22 +6,45 @@ import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 
 const description =
-  "An e-commerce platform where categories, products and the store itself adapt on the fly, and the buyer's own words are the filter.";
+  "Wortox AI is an e-commerce platform where a shopper writes what they need and the store builds the matching category page.";
+const title = "Wortox AI | Natural-language product search for e-commerce";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://wortox.srnja.com/#organization",
+      name: "Wortox AI",
+      url: "https://wortox.srnja.com",
+      logo: "https://wortox.srnja.com/images/landing-logo.svg",
+    },
+    { "@type": "WebSite", "@id": "https://wortox.srnja.com/#website", url: "https://wortox.srnja.com", name: "Wortox AI" },
+    {
+      "@type": "SoftwareApplication",
+      name: "Wortox AI",
+      applicationCategory: "BusinessApplication",
+      operatingSystem: "Web",
+      description,
+      url: "https://wortox.srnja.com",
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://wortox.srnja.com"),
-  title: "Wortox AI | The buyer's words are the filter",
+  title,
   description,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "/",
     siteName: "Wortox AI",
-    title: "Wortox AI | The buyer's words are the filter",
+    title,
     description,
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Wortox AI: the buyer's words are the filter." }],
   },
-  twitter: { card: "summary_large_image", title: "Wortox AI", description, images: ["/og.jpg"] },
+  twitter: { card: "summary_large_image", title, description, images: ["/og.jpg"] },
 };
 
 export const viewport: Viewport = { themeColor: "#f5f3f0" };
@@ -30,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="bg-bg font-sans text-fg">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-3 focus:z-[60] focus:rounded-full focus:bg-fg focus:px-4 focus:py-2 focus:text-bg"

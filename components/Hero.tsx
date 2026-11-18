@@ -13,6 +13,7 @@ export function Hero() {
       <div className="mx-auto w-full max-w-page px-5 pb-20 pt-32 sm:px-8 md:pb-24 md:pt-36">
         <div className="max-w-[40rem]">
           <h1 className="settle font-display text-display-xl font-semibold text-fg">
+            <span className="sr-only">Wortox AI: </span>
             The buyer&rsquo;s words are the&nbsp;filter.
           </h1>
           <p className="settle mt-7 max-w-[52ch] text-lg leading-relaxed text-fg/80 [animation-delay:120ms] md:text-xl md:leading-relaxed">

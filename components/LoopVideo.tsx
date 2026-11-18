@@ -64,7 +64,7 @@ export function LoopVideo({ name, eager = false, className, controlClassName }: 
     <>
       <div aria-hidden className={cn("absolute inset-0 overflow-hidden", className)}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={poster} alt="" width={1920} height={1080} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={poster} alt="" width={1920} height={1080} fetchPriority={eager ? "high" : undefined} className="absolute inset-0 h-full w-full object-cover" />
         <video
           ref={ref}
           className="loop-video absolute inset-0 h-full w-full object-cover"
